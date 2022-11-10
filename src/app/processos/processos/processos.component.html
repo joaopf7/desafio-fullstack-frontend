@@ -1,0 +1,47 @@
+<div *ngIf="processos$ | async as processos; else loading">
+<table mat-table [dataSource]="processos" class="mat-elevation-z8">
+
+    
+    <ng-container matColumnDef="descricao">
+      <th mat-header-cell *matHeaderCellDef> Descrição  </th>
+      <td mat-cell *matCellDef="let processo"> {{processo.descricao}} 
+        
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="acoes">
+        <mat-header-cell *matHeaderCellDef>
+            <button mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon">
+                <mat-icon (click)="add()">add</mat-icon>
+            </button>
+        </mat-header-cell>
+
+        <mat-cell *matCellDef="let processo">
+            <button *ngIf="processo.status == 'pendente'" mat-icon-button color="primary" aria-label="Realizar Parecer">
+                <mat-icon (click)="realizarParecer(processo)" >{{processo.status | status}}</mat-icon>
+            </button>
+
+            <button  mat-icon-button color="primary" aria-label="Realizar Parecer">
+                <mat-icon > assignment_add</mat-icon>
+            </button>
+           
+
+
+        </mat-cell>
+      </ng-container>
+  
+    
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
+</div>
+<ng-template #loading>
+    <div class="loading-spinner">
+        <mat-spinner></mat-spinner>
+    </div>
+</ng-template>
+
+  
+  

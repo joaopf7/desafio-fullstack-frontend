@@ -1,0 +1,10 @@
+
+<form [formGroup]="form">
+    <mat-form-field>
+        <input matInput placeholder="Parecer" formControlName = "parecer">
+      </mat-form-field>
+
+     
+</form>
+<button (click) = "onSubmit()">Incluir Parecer</button>
+<button (click) = "onCancel()">cancelar</button>

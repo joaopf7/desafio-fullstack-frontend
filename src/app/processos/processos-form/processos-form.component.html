@@ -1,0 +1,14 @@
+
+<form [formGroup]="form">
+    <mat-form-field>
+        <input matInput placeholder="Descrição" formControlName = "descricao">
+      </mat-form-field>
+
+      <!--<mat-select formControlName = "usuarios">
+        <mat-option value="null"></mat-option>
+        <mat-option value=""></mat-option>
+       
+      </mat-select>-->
+</form>
+<button (click) = "onSubmit()">salvar</button>
+<button (click) = "onCancel()">cancelar</button>
